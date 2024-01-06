@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+
+		<title>Run Arbitrary JS</title>
+		<meta name="viewport" content="width=device-width">
+	</head>
+	<body>
+		<button onclick="
+			(function() {
+				var x = new Function(document.getElementById('code').value)();
+
+				switch (typeof x) {
+					case 'object':
+					document.getElementById('output').innerText = JSON.stringify(x, null, '\t');
+					break;
+					default:
+					document.getElementById('output').innerText = String(x);
+					break;
+				}
+			})();
+		">Execute</button>
+		<br>
+		<textarea id="code">return "Hello";</textarea>
+		<pre id="output"></pre>
+	</body>
+</html>

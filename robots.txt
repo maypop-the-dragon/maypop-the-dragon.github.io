@@ -1,0 +1,5 @@
+Disallow: /assets/
+Disallow: /x/
+
+Disallow: /.gitignore
+Disallow: /README.md
