@@ -20,19 +20,25 @@
 (function() {
 	var out = document.getElementById('out');
 
-	function addMsg(args, css) {	
+	function addMsg(args, borderColor, textColor) {	
 		var div = out.appendChild(document.createElement("DIV"));
 
 		for (var i = 0; i < args.length; ++i)
 			if (typeof args[i] == "string") {
 				div.innerText += JSON.stringify(args[i], null, "\t") + "\n";
 			} else if (typeof args[i] == "object" && args[i] != null && !(args[i] instanceof Error)) {
-				div.innerText += args[i].constructor.name + " " + JSON.stringify(args[i], null, "\t") + "\n";
+				try {
+					div.innerText += args[i].constructor.name + " " + JSON.stringify(args[i], null, "\t") + "\n";
+				} catch (error) {
+					div.innerText += String(args[i]) + "\n";
+				}
 			} else {
 				div.innerText += String(args[i]) + "\n";
 			}
 
-		div.style = "border: 1px solid #999; padding: 0.25em;" + css;
+		div.style.setProperty("border", "1px solid " + borderColor);
+		div.style.setProperty("color", textColor);
+		div.style.setProperty("padding", "0.25em");
 
 		return div;
 	}
@@ -41,17 +47,17 @@
 		try {
 			console.clear();
 
-			addMsg([new Function(document.getElementById("code").value)()], "border-color: #FFF; color: #080;");
+			addMsg([new Function(document.getElementById("code").value)()], "FFF", "#080");
 		} catch (error) {
-			console.error(error);
+			addMsg([error], "#FFF", "#F00");
 		}
 	};
 
 	console.clear = function() { out.innerHTML = ""; };
-	console.info = function() { addMsg(arguments, "border-color: #00F; color: #009;"); };
-	console.log = function() { addMsg(arguments, ""); };
-	console.warn = function() { addMsg(arguments, "border-color: #C90; color: #630;"); };
-	console.error = function() { addMsg(arguments, "border-color: #F00; color: #900;"); };
+	console.info = function() { addMsg(arguments, "#00F", "#009"); };
+	console.log = function() { addMsg(arguments, "#000", "#000"); };
+	console.warn = function() { addMsg(arguments, "#C90", "#630"); };
+	console.error = function() { addMsg(arguments, "#F00", "#F00"); };
 })();
 		</script>
 	</body>
