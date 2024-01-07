@@ -8,7 +8,7 @@
 
 		<!-- This page lets you run JS code on browsers without dev tools. -->
 	</head>
-	<body>
+	<body style="height: 32767px;">
 		<button id="run">Execute</button>
 		<br>
 		<textarea id="code" cols="50" rows="12">return "Hello";</textarea>
@@ -45,19 +45,21 @@
 
 	document.getElementById("run").onclick = function() {
 		try {
-			console.clear();
+			var con = {
+				"clear": function() { out.innerHTML = ""; },
+				"info": function() { addMsg(arguments, "#00F", "#00F"); },
+				"log": function() { addMsg(arguments, "#000", "#000"); },
+				"warn": function() { addMsg(arguments, "#C90", "#630"); },
+				"error": function() { addMsg(arguments, "#F00", "#F00"); }
+			};
 
-			addMsg([new Function(document.getElementById("code").value)()], "FFF", "#080");
+			out.innerHTML = "";
+
+			addMsg([new Function("console", document.getElementById("code").value)(con)], "FFF", "#080");
 		} catch (error) {
 			addMsg([error], "#FFF", "#F00");
 		}
 	};
-
-	console.clear = function() { out.innerHTML = ""; };
-	console.info = function() { addMsg(arguments, "#00F", "#009"); };
-	console.log = function() { addMsg(arguments, "#000", "#000"); };
-	console.warn = function() { addMsg(arguments, "#C90", "#630"); };
-	console.error = function() { addMsg(arguments, "#F00", "#F00"); };
 })();
 		</script>
 	</body>
