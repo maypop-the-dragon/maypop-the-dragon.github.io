@@ -1,3 +1,5 @@
+Allow: /
+
 Disallow: /assets/
 Disallow: /x/
 
