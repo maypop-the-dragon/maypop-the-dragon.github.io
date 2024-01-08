@@ -28,10 +28,10 @@ body {
 	display: block;
 	margin: auto;
 
-	height: 100vh;
+	height: 100vh !important;
 	max-height: 215px;
 	max-width: 33.125rem;
-	width: 87.5vw;
+	width: 87.5vw !important;
 }
 
 #nav {
