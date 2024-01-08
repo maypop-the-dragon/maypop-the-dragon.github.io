@@ -23,14 +23,13 @@ body {
 	max-width: 32rem;
 }
 
-#hero { margin: 0; }
-#hero > svg {
+#hero > picture { display: block; }
+#hero > picture > img {
 	display: block;
 	margin: auto;
 
-	height: 100vh;
-	max-height: 215px;
-	max-width: 33.125rem;
+	height: auto;
+	max-width: 33.5rem;
 	width: 87.5vw;
 }
 
