@@ -2,7 +2,7 @@
 
 // DS Day Official Site Common JS
 
-var IS_3DS = navigator.userAgent.indexOf("Nintendo 3DS") == -1 || (screen.pixelDepth == 16 && navigator.platform == "iPhone");
+var IS_3DS = navigator.userAgent.indexOf("Nintendo 3DS") != -1 || (screen.pixelDepth == 16 && navigator.platform == "iPhone");
 
 if (IS_3DS) {
 	document.addEventListener("load", function(event) {

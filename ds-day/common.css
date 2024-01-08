@@ -35,28 +35,31 @@ body {
 }
 
 #nav {
-	display: table;
-	table-layout: fixed;
+	display: block;
+	display: flex;
 
 	margin: auto;
-	max-width: 32rem;
-	width: 100vw;
+	max-width: 33rem;
+	width: 100%;
 
 	font-weight: bold;
 	text-align: center;
 }
 #nav > a {
-	display: table-cell;
-	width: 11rem;
+	flex-grow: 1;
+	flex-shrink: 1;
+	flex-wrap: wrap;
+	width: 25%;
 
 	color: #000;
 	text-decoration: none;
 
-	padding: 0.5rem 0;
+	margin: 0 0.125rem;
+	padding: 0.5rem;
 }
 #nav > a:link, #nav > a:visited {
 	background: #FFF;
-	background: -webkit-linear-gradient(0deg, #6D6E70, #FFF);
+	background: -webkit-linear-gradient(90deg, #6D6E70, #FFF);
 	background: linear-gradient(0deg, #6D6E70, #FFF);
 	box-shadow: 0 0 0.125rem #999, inset 0 0 0 1px #000, inset 0 0 0 2px #FFF;
 	text-shadow: 0 1px 1px #FFF;
@@ -66,9 +69,10 @@ body {
 }
 #nav > a:link:active, #nav > a:visited:active {
 	background: #6D6E70;
-	background: -webkit-linear-gradient(0deg, #6D6E70, #221E1F);
+	background: -webkit-linear-gradient(90deg, #6D6E70, #221E1F);
 	background: linear-gradient(0deg, #6D6E70, #221E1F);
 	box-shadow: inset 0 0 0 1px #000, inset 0 0 0 2px #221E1F;
 	color: #FFF;
+	outline: none;
 	text-shadow: 0 0 2px #FFF;
 }
