@@ -40,18 +40,20 @@ return "run JS on devices without dev tools!";</textarea>
 		div.style.color = textColor;
 		div.style.padding = "0.25em";
 
-		var oldHeight = height;
-		height = Math.max(height, document.body.getBoundingClientRect().height);
-		if (height !== oldHeight)
-			document.body.style.minHeight = height + "px";
-
 		return div;
 	}
 
 	document.getElementById("run").onclick = function() {
 		try {
 			var con = {
-				"clear": function() { out.innerHTML = ""; },
+				"clear": function() {
+					var oldHeight = height;
+					height = Math.max(height, document.body.getBoundingClientRect().height);
+					if (height !== oldHeight)
+						document.body.style.minHeight = height + "px";
+
+					out.innerHTML = "";
+				},
 				"info": function() { addMsg(arguments, "#00F", "#00F"); },
 				"log": function() { addMsg(arguments, "#000", "#000"); },
 				"warn": function() { addMsg(arguments, "#C90", "#630"); },

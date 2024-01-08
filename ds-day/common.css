@@ -24,14 +24,14 @@ body {
 }
 
 #hero { margin: 0; }
-#hero > img {
+#hero > svg {
 	display: block;
 	margin: auto;
 
-	height: 100vh !important;
+	height: 100vh;
 	max-height: 215px;
 	max-width: 33.125rem;
-	width: 87.5vw !important;
+	width: 87.5vw;
 }
 
 #nav {
