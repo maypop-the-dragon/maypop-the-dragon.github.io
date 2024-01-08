@@ -1,5 +1,10 @@
 /* DS Day Official Site Common CSS */
 
+@font-face {
+	font-family: NDS-LogoParts;
+	src: url('/assets/fonts/new-23dsi-lite-xl.otf');
+}
+
 html {
 	background: #CCC;
 	color: #221E1F;
@@ -23,16 +28,14 @@ body {
 	max-width: 32rem;
 }
 
+.logo {
+	font-family: NDS-LogoParts;
+}
 
-#hero { width: 100% !important; }
-#hero > picture { display: block; }
-#hero > picture > img {
-	display: block;
-	margin: auto;
-
-	height: auto;
-	width: 87.5vw;
-	max-width: 33.5rem;
+h1 {
+	font-size: 15vw;
+	font-size: min(15vw, 5.625rem);
+	text-align: center;
 }
 
 #nav {
