@@ -23,14 +23,16 @@ body {
 	max-width: 32rem;
 }
 
+
+#hero { width: 100% !important; }
 #hero > picture { display: block; }
 #hero > picture > img {
 	display: block;
 	margin: auto;
 
 	height: auto;
-	max-width: 33.5rem;
 	width: 87.5vw;
+	max-width: 33.5rem;
 }
 
 #nav {
@@ -38,8 +40,8 @@ body {
 	display: flex;
 
 	margin: auto;
-	max-width: 33rem;
 	width: 100%;
+	max-width: 33rem;
 
 	font-weight: bold;
 	text-align: center;
