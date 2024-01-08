@@ -33,9 +33,31 @@ body {
 }
 
 h1 {
-	font-size: 15vw;
+	/*
+		Viewport units weren't working right on 3DS if you open the page without
+		having another page open on the same tab. My best guess as to why this
+		happens is that it uses the default viewport size (the desktop one)
+		because there is no viewport yet. Or something.
+
+		Luckily it doesn't support the min function.
+	 */
+	font-size: 48px;
 	font-size: min(15vw, 5.625rem);
 	text-align: center;
+
+	margin: 0;
+	margin-top: 0.5rem;
+}
+h1 > .xg { color: #6D6E70; }
+h1 > .xs { font-size: 0.78em; }
+h1 > .xc {
+	color: #929497;
+	position: relative;
+}
+h1 > .xc::before {
+	content: 'o';
+	color: #6D6E70;
+	position: absolute;
 }
 
 #nav {
