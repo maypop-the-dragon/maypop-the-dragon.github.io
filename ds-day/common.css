@@ -60,6 +60,11 @@ h1 > .xc::before {
 	position: absolute;
 }
 
+
+a:link { color: #03C; }
+a:visited { color: #C0C; }
+a:active { color: #F00; }
+
 #nav {
 	display: block;
 	display: flex;
